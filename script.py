@@ -1,5 +1,6 @@
 #python 3.x
 #Crypt with extra steps. Meant to be two separate projects, this is with steganography.
+#Encrypt takes -e for sure, -i is optional. Decrypt requires -e and -k
 #from select import select -VSC wanted to add this in, idk why.
 
 from PIL import Image
@@ -43,10 +44,11 @@ def encryption(providedInput):
 
     #steganography portion. Saves encrypted message (E) and key (K) to different images specified.
     selectPhotoE = Image.open(args.photoE)
-    selectPhotoK = Image.open(args.photoK)
+    #selectPhotoK = Image.open(args.photoK)
     encodePhotoE = stepic.encode(selectPhotoE, encodeByte)
     encodePhotoE.save('encryptedMessage.png', 'PNG') 
-    encodePhotoK = stepic.encode(selectPhotoK, keyByte)
+    encodePhotoK = stepic.encode(selectPhotoE.transpose(Image.FLIP_LEFT_RIGHT), keyByte)
+    #encodePhotoK = stepic.encode(selectPhotoK, keyByte)
     encodePhotoK.save('key.png', 'PNG') 
 
 #define what to do without passing in file input
@@ -91,7 +93,7 @@ def function():
             print("\n- Your decrypted message is below -\n" + decrypted + "\n")
 
         except: #give error when there is an error
-            print("\nError. Check your image and encrypted message.\n")
+            print("\nError. Check your images.\n")
 
 #main function
 try:
