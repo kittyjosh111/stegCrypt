@@ -3,6 +3,8 @@ OTP and steganography.
 
 The iOS shortcut equivalent for this script may be found on routinehub [https://].
 
+Refer to the example.md for an example usage.
+
 ## Usage
 This script relies on numpy and stepic as dependencies. Install it first with ```pip3 install numpy``` and ```pip3 install stepic```. Alternatively, just run ```pip3 install -r requirements.txt``` Then download the script. To execute the script, run ```python3 script.py``` in a terminal. Follow the prompts given. If you want to pass in a text file to encrypt, use the ```-i``` flag. To pass in image files for steganography, ```-e``` will input an image for encryption, or inputs the encrypted message for decryption, and ```-k``` will input the image with the key for decryption. More details below.
 
